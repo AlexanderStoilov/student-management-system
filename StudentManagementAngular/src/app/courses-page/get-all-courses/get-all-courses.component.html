@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+
+    <body>
+        <!-- ngIf is to not break the text prop. -->
+        <section id="getCoursesMenu">
+            <input id="filterNameInput" type="search" placeholder="Search" [(ngModel)]='text'>
+            <button id="filterNameButtonSearch" (click)="searchNameSelection(text)">Filter</button>
+            <button id="filterNameButtonClear" (click)="clearNameSelection()">Show All</button>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Total Hours</th>
+                        <th scope="col">Teacher</th>
+                        <th scope="col">Students</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let course of this.filteredCourses ">
+                        <td>{{ course?.id }}</td>
+                        <td>{{ course?.name }}</td>
+                        <td>{{ course?.totalHours }}</td>
+                        <td style="display: block;">
+                            <div *ngIf="course?.teacher !== null">
+                                <div>
+                                    <b>ID:</b>
+                                    {{ course?.teacher.id }}
+                                </div>
+                                <div>
+                                    <b>Name:</b>
+                                    {{ course?.teacher.name }}
+                                </div>
+                                <div>
+                                    <b>Degree:</b>
+                                    {{ course?.teacher.degree }}
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div style="display: block;" *ngFor="let student of course?.students">
+
+                                <div *ngIf="student !== null">
+
+                                    <div>
+                                        <b>ID:</b>
+                                        {{ student?.id }}
+                                    </div>
+                                    <div>
+                                        <b>Name:</b>
+                                        {{ student?.name }}
+                                    </div>
+                                    <div>
+                                        <b>Age:</b>
+                                        {{ student?.age }}
+                                    </div>
+                                    <div *ngIf="roleIs('ADMIN') || roleIs('TEACHER')">
+                                        <b>Grades:</b>
+                                        <app-get-student-course-grades [studentId]="student?.id"
+                                            [courseId]="course?.id">
+                                        </app-get-student-course-grades>
+                                    </div>
+                                    <div *ngIf="roleIs('ADMIN') || roleIs('TEACHER')">
+                                        <b>Average Grade:</b>
+                                        <app-get-student-course-average-grade [studentId]="student?.id"
+                                            [courseId]="course?.id"></app-get-student-course-average-grade>
+                                    </div>
+                                    <div class="divider d-flex align-items-center my-4">
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </section>
+    </body>
+
+</html>

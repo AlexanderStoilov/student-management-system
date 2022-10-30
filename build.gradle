@@ -1,0 +1,9 @@
+plugins {
+    id 'java'
+    id 'java-library'
+}
+
+dependencies {
+    implementation 'org.mockito:mockito-core:4.6.1'
+    implementation 'org.mockito:mockito-all:1.10.19'
+}

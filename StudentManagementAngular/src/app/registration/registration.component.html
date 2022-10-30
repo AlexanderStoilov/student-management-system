@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Registration</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+        <link href="registration.component.css" rel="stylesheet">
+
+    </head>
+
+    <body>
+        <div class="background">
+            <div class="shape"></div>
+            <div class="shape"></div>
+        </div>
+        <form>
+            <h3>Registration</h3>
+
+            <label for="username">Username</label>
+            <input type="text" placeholder="Username" id="username" [(ngModel)]="username"
+                [ngModelOptions]="{standalone: true}">
+
+            <label for="password">Password</label>
+            <input type="password" placeholder="Password" id="password" [(ngModel)]="password"
+                [ngModelOptions]="{standalone: true}">
+
+            <label>Role</label>
+
+            <div class="container">
+                <div class="radio">
+                    <label class="radio-label">Admin</label>
+                    <input name="radio" type="radio" value="ADMIN" (click)="selectAdmin()" [(ngModel)]="type" [ngModelOptions]="{standalone: true}" checked>
+                </div>
+
+                <div class="radio">
+                    <label class="radio-label">Teacher</label>
+                    <input name="radio" type="radio" value="TEACHER" (click)="selectTeacher()" [(ngModel)]="type" [ngModelOptions]="{standalone: true}">
+                </div>
+
+                <div class="radio">
+                    <label class="radio-label">Student</label>
+                    <input name="radio" type="radio" value="STUDENT" (click)="selectStudent()" [(ngModel)]="type" [ngModelOptions]="{standalone: true}">
+                </div>
+            </div>
+
+            <section id="degree_choice" *ngIf="this.selection === 'TEACHER'">
+                <label>Degree</label>
+                <div class="container">
+                    <div class="radio">
+                        <label class="radio-label">BSC</label>
+                        <input name="radio" type="radio" value="BSC" [(ngModel)]="degree" [ngModelOptions]="{standalone: true}" checked>
+                    </div>
+
+                    <div class="radio">
+                        <label class="radio-label">MSC</label>
+                        <input name="radio" type="radio" value="MSC" [(ngModel)]="degree" [ngModelOptions]="{standalone: true}">
+                    </div>
+
+                    <div class="radio">
+                        <label class="radio-label">PHD</label>
+                        <input name="radio" type="radio" value="PHD" [(ngModel)]="degree" [ngModelOptions]="{standalone: true}">
+                    </div>
+
+                </div>
+            </section>
+
+            <section id="age_choice" *ngIf="this.selection === 'STUDENT'">
+                <label>Age</label>
+                <div class="container">
+                    <div class="radio">
+                        <input name="radio" type="range" min="18" max="99" [(ngModel)]="age" checked
+                            oninput="this.nextElementSibling.value = this.value">
+                        <output>50</output>
+                    </div>
+                </div>
+            </section>
+            <button id="signup-btn" (click)="register()">Sign up</button>
+            <footer>
+                <p>Already have an account?</p>
+                <button id="gotologin-btn" (click)="goToLogin()">Login</button>
+            </footer>
+        </form>
+    </body>
+
+</html>

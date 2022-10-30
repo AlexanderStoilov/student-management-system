@@ -1,0 +1,9 @@
+// To stop the warnings for the CSS' "backgrop-filter" property
+{
+    "extends": [
+        "development"
+    ],
+    "hints": {
+        "compat-api/css": "off"
+    }
+}

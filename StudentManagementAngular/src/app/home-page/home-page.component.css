@@ -1,0 +1,17 @@
+body {
+    margin: 10px 50px 25px;
+    font-size: 15px;
+}
+
+button {
+    margin-left: 40px;
+}
+
+.btn-logout {
+    /* margin: auto; */
+    display: block;
+    float: right;
+    margin-bottom: 50px;
+    background-color: rgb(78, 24, 24);
+    border-color: black;
+}

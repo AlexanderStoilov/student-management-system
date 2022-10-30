@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Courses</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+
+    <body>
+        <section id="nav">
+            <p>Welcome to the Courses page.</p>
+            <nav>
+                <button type="button" class="btn btn-primary" (click)="getCoursesMenu()"> Get All Courses </button>
+                <button type="button" class="btn btn-primary" *ngIf="roleIs('ADMIN')" (click)="addCourseMenu()"> Add
+                    Course </button>
+                <button type="button" class="btn btn-primary" *ngIf="roleIs('ADMIN') || roleIs('TEACHER')"
+                    (click)="addStudentToCourseMenu()"> Add Student to a Course </button>
+                <button type="button" class="btn btn-primary" *ngIf="roleIs('ADMIN')"
+                    (click)="addTeacherToCourseMenu()"> Add Teacher to a Course </button>
+                <button type="button" class="btn btn-primary" *ngIf="roleIs('ADMIN')"
+                    (click)="removeTeacherFromCourseMenu()"> Remove Teacher from a Course </button>
+                <button type="button" class="btn btn-primary" *ngIf="roleIs('ADMIN') || roleIs('TEACHER')"
+                    (click)="addGradeToStudentMenu()"> Add Grade to a Student </button>
+                <button type="button" class="btn btn-primary btn-home" (click)="goToHome()">Home</button>
+            </nav>
+        </section>
+
+        <app-get-all-courses *ngIf="this.commandEnabled === 'getCoursesMenu'" [courses]="courses"
+            [filteredCourses]="courses">
+        </app-get-all-courses>
+
+        <app-add-course *ngIf="this.commandEnabled === 'addCourseMenu'"></app-add-course>
+
+        <app-add-student-to-course *ngIf="this.commandEnabled === 'addStudentToCourseMenu'"></app-add-student-to-course>
+
+        <app-add-teacher-to-course *ngIf="this.commandEnabled === 'addTeacherToCourseMenu' ">
+        </app-add-teacher-to-course>
+
+        <app-add-grade-to-student *ngIf="this.commandEnabled === 'addGradeToStudentMenu'"></app-add-grade-to-student>
+
+        <app-remove-teacher-from-course *ngIf="this.commandEnabled === 'removeTeacherFromCourseMenu'">
+        </app-remove-teacher-from-course>
+
+    </body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+
+    <body>
+        <section>
+            <p>Welcome to the Users dashboard page.</p>
+            <button type="button" class="btn btn-primary" (click)="getUsers()">Get Users Dashboard</button>
+            <button type="button" class="btn btn-primary btn-home" (click)="goToHome()">Home</button>
+            <script src="" async defer></script>
+        </section>
+
+        <section>
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">username</th>
+                        <th scope="col">account nonlocked</th>
+                        <th scope="col">account nonexpired</th>
+                        <th scope="col">credentials nonexpired</th>
+                        <th scope="col">user enabled</th>
+                        <th scope="col">granted authorities</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let user of users">
+                        <td>{{ user?.username }}</td>
+                        <td> {{ user?.accountNonLocked }} </td>
+                        <td> {{ user?.accountNonExpired }} </td>
+                        <td> {{ user?.credentialsNonExpired }} </td>
+                        <td> {{ user?.enabled }} </td>
+                        <td style="display: block;" *ngFor="let row of user?.authorities"> {{ row.authority }} </td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </body>
+
+</html>

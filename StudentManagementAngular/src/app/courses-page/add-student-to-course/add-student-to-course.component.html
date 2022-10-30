@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Add student to course</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+
+    <body>
+        <section id="addStudentToCourseMenu">
+            <div class="background">
+                <div class="shape" id="shape"></div>
+            </div>
+            <form id="form1">
+                <label>Student ID</label>
+                <input type="text" placeholder="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" id="studentId"
+                    [(ngModel)]="studentId" [ngModelOptions]="{standalone: true}">
+
+                <label>Course ID</label>
+                <input type="text" placeholder="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" id="courseId"
+                    [(ngModel)]="courseId" [ngModelOptions]="{standalone: true}">
+
+                <button type="button" id="add-btn" (click)="addStudentToCourse()">Add Student to
+                    Course</button>
+            </form>
+        </section>
+        <script src="" async defer></script>
+    </body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Remove Teacher from a Course page</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+
+    <body>
+        <section id="removeTeacherFromCourseMenu">
+            <div class="background">
+                <div class="shape" id="shape"></div>
+            </div>
+            <form id="form4">
+                <label>Teacher ID</label>
+                <input type="text" placeholder="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" id="teacherId"
+                    [(ngModel)]="teacherId" [ngModelOptions]="{standalone: true}">
+
+                <label>Course ID</label>
+                <input type="text" placeholder="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" id="courseId"
+                    [(ngModel)]="courseId" [ngModelOptions]="{standalone: true}">
+
+                <button type="button" id="add-btn" (click)="removeTeacherFromCourse()">Remove Teacher from
+                    Course</button>
+            </form>
+        </section>
+    </body>
+
+</html>

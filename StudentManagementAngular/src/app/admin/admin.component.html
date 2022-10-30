@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Admin</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+
+    <body>
+        <section>
+            Welcome to the Admin page!
+        </section>
+        <button type="button" class="btn btn-primary btn-home" (click)="goToHome()">Home</button>
+
+
+        <section id="changeUserRole">
+
+            <form>
+                <label>Username</label>
+                <input type="text" placeholder="username" id="username" [(ngModel)]="username"
+                    [ngModelOptions]="{standalone: true}">
+
+                <label>New Role</label>
+                <div class="container">
+                    <div class="radio">
+                        <label class="radio-label">Admin</label>
+                        <input name="radio" type="radio" value="ADMIN" [(ngModel)]="role"
+                            [ngModelOptions]="{standalone: true}" checked>
+                    </div>
+
+                    <div class="radio">
+                        <label class="radio-label">Teacher</label>
+                        <input   name="radio" type="radio" value="TEACHER" [(ngModel)]="role"
+                            [ngModelOptions]="{standalone: true}">
+                    </div>
+
+                    <div class="radio">
+                        <label class="radio-label">Student</label>
+                        <input name="radio" type="radio" value="STUDENT" [(ngModel)]="role"
+                            [ngModelOptions]="{standalone: true}">
+                    </div>
+                </div>
+
+                <button type="button" id="changerole-btn">Change Role</button>
+
+            </form>
+        </section>
+
+
+    </body>
+
+</html>

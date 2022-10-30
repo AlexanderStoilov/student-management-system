@@ -1,0 +1,6 @@
+rootProject.name = 'StudentManagementApp'
+
+include 'StudentManagementDomain'
+include 'StudentManagementCLI'
+include 'StudentManagementAPI'
+include 'StudentManagementAngular'

@@ -1,0 +1,4 @@
+<!-- <button title="Get Avg Grade" (click)="getStudentCourseAverageGrade()"></button> -->
+<p *ngIf="isNumber(grade)">
+    {{ grade | gradeLetterConverter | averageGradePrefixer }}
+</p>
